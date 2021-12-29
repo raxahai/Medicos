@@ -6,6 +6,7 @@ import 'package:test_me/core/utils/size_config.dart';
 import 'package:test_me/core/widgets/app_bar_widget.dart';
 import 'package:test_me/core/widgets/custom_button.dart';
 import 'package:test_me/core/widgets/custom_text_field.dart';
+import 'package:test_me/features/Login/view/widgets/social_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -27,6 +28,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   "assets/icons/medicos.png",
+                  height: SizeConfig.safeBlockVertical! * 38,
                 ),
                 CustomTextField(
                   title: "E-mail",
@@ -37,14 +39,14 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Image.asset(
                       "assets/icons/user.png",
-                      width: 30,
-                      height: 30,
+                      width: SizeConfig.safeBlockHorizontal! * 3,
+                      height: SizeConfig.safeBlockVertical! * 3,
                       color: AppTheme.secondaryColor,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: SizeConfig.safeBlockVertical! * 1.5,
                 ),
                 CustomTextField(
                   title: "Password",
@@ -61,8 +63,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: SizeConfig.safeBlockVertical! * 2,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
@@ -98,35 +100,27 @@ class LoginScreen extends StatelessWidget {
                     }
                   },
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: SizeConfig.safeBlockVertical! * 1.5,
                 ),
                 Text(
                   "or continue with",
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 SizedBox(
-                  height: 10,
+                  height: SizeConfig.safeBlockVertical! * 1,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
+                    SocialButton(
                       onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: AppTheme.blueColor,
-                      ),
-                      splashRadius: 25,
-                      iconSize: SizeConfig.safeBlockHorizontal! * 14,
+                      icon: FontAwesomeIcons.facebook,
+                      iconColor: AppTheme.blueColor,
                     ),
-                    IconButton(
+                    SocialButton(
                       onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.googlePlus,
-                      ),
-                      iconSize: SizeConfig.safeBlockHorizontal! * 14,
-                      splashRadius: 25,
+                      icon: FontAwesomeIcons.googlePlus,
                     )
                   ],
                 ),
