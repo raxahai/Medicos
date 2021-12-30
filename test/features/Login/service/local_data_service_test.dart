@@ -1,18 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:test_me/features/Home/service/local_data_service.dart';
+import 'package:test_me/features/Login/service/local_data_service.dart';
 
 class MockSharedPreference extends Mock implements SharedPreferences {}
 
 void main() {
-  late HomeLocalDataServiceImplementation homeLocalDataServiceImplementation;
+  late LoginLocalDataServiceImplementation homeLocalDataServiceImplementation;
   late MockSharedPreference mockSharedPreference;
 
   setUp(() {
     mockSharedPreference = new MockSharedPreference();
-    homeLocalDataServiceImplementation = new HomeLocalDataServiceImplementation(
-        sharedPreference: mockSharedPreference);
+    homeLocalDataServiceImplementation =
+        new LoginLocalDataServiceImplementation(
+            sharedPreference: mockSharedPreference);
   });
 
   group("CacheEmail", () {
