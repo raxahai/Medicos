@@ -15,6 +15,8 @@ class CustomTextField extends StatelessWidget {
   final void Function(String)? onChanged;
   final int? maxLength;
   final String? hintText;
+  final Widget? suffixIcon;
+  final FocusNode? focusNode;
   const CustomTextField({
     Key? key,
     this.controller,
@@ -30,6 +32,8 @@ class CustomTextField extends StatelessWidget {
     this.inputFormatters,
     this.onChanged,
     this.maxLength,
+    this.suffixIcon,
+    this.focusNode,
   }) : super(key: key);
 
   @override
@@ -51,12 +55,14 @@ class CustomTextField extends StatelessWidget {
             padding: EdgeInsets.all(1.0),
           ),
           TextFormField(
+            focusNode: focusNode,
             autocorrect: false,
             maxLength: maxLength,
             controller: controller,
             decoration: InputDecoration(
               prefixIcon: prefixIcon,
               hintText: hintText,
+              suffixIcon: suffixIcon,
             ),
             style: style,
             obscureText: obscureText,
