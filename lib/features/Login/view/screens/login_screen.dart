@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:test_me/core/theme/app_theme.dart';
 import 'package:test_me/core/utils/Validators/validators.dart';
 import 'package:test_me/core/utils/size_config.dart';
@@ -7,10 +8,11 @@ import 'package:test_me/core/widgets/app_bar_widget.dart';
 import 'package:test_me/core/widgets/custom_button.dart';
 import 'package:test_me/core/widgets/custom_text_field.dart';
 import 'package:test_me/features/Login/view/widgets/social_button.dart';
+import 'package:test_me/features/Login/view_model/login_view_model.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final LoginViewModelImpl loginViewModelImpl = Get.put(LoginViewModelImpl());
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class LoginScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           child: Form(
-            key: formKey,
+            key: loginViewModelImpl.formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -50,6 +52,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 CustomTextField(
                   title: "Password",
+                  obscureText: true,
                   hintText: "Password",
                   width: SizeConfig.blockSizeHorizontal! * 85,
                   validator: Validators.validateEmptyPassword,
@@ -95,9 +98,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    if (!formKey.currentState!.validate()) {
-                      return;
-                    }
+                    loginViewModelImpl.login();
                   },
                 ),
                 SizedBox(
