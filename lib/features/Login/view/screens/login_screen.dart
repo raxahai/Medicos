@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import 'package:test_me/core/theme/app_theme.dart';
 import 'package:test_me/core/utils/Validators/validators.dart';
 import 'package:test_me/core/utils/size_config.dart';
@@ -30,49 +31,49 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   "assets/icons/medicos.png",
-                  height: SizeConfig.safeBlockVertical! * 38,
+                  height: 35.h,
                 ),
                 CustomTextField(
                   title: "E-mail",
                   hintText: "someone@example.com",
-                  width: SizeConfig.blockSizeHorizontal! * 85,
+                  width: 85.w,
                   validator: Validators.validateEmail,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Image.asset(
                       "assets/icons/user.png",
-                      width: SizeConfig.safeBlockHorizontal! * 3,
-                      height: SizeConfig.safeBlockVertical! * 3,
+                      width: 3.w,
+                      height: 3.h,
                       color: AppTheme.secondaryColor,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: SizeConfig.safeBlockVertical! * 1.5,
+                  height: 1.5.h,
                 ),
                 CustomTextField(
                   title: "Password",
                   obscureText: true,
                   hintText: "Password",
-                  width: SizeConfig.blockSizeHorizontal! * 85,
+                  width: 85.w,
                   validator: Validators.validateEmptyPassword,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Image.asset(
                       "assets/icons/password.png",
-                      width: 30,
-                      height: 30,
+                      width: 3.w,
+                      height: 3.h,
                       color: AppTheme.secondaryColor,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: SizeConfig.safeBlockVertical! * 2,
+                  height: 2.h,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 30.0),
+                    padding: const EdgeInsets.only(right: 30),
                     child: Text(
                       "Forgot password?",
                       style: Theme.of(context)
@@ -82,19 +83,19 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: 3.h,
                 ),
                 CustomButton(
-                  width: SizeConfig.blockSizeHorizontal! * 70,
+                  width: 70.w,
                   child: Padding(
-                    padding: const EdgeInsets.all(14.0),
+                    padding: EdgeInsets.symmetric(vertical: 2.h),
                     child: Text(
                       "Login",
                       style: Theme.of(context)
                           .textTheme
                           .button!
-                          .copyWith(fontSize: 22),
+                          .copyWith(fontSize: 18.sp),
                     ),
                   ),
                   onPressed: () {
@@ -102,14 +103,14 @@ class LoginScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  height: SizeConfig.safeBlockVertical! * 1.5,
+                  height: 1.5.h,
                 ),
                 Text(
                   "or continue with",
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 SizedBox(
-                  height: SizeConfig.safeBlockVertical! * 1,
+                  height: 1.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

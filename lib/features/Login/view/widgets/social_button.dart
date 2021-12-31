@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:test_me/core/utils/size_config.dart';
+import 'package:sizer/sizer.dart';
 
 class SocialButton extends StatelessWidget {
   final Function()? onPressed;
@@ -21,7 +21,7 @@ class SocialButton extends StatelessWidget {
         icon,
         color: iconColor,
       ),
-      iconSize: SizeConfig.safeBlockHorizontal! * 14,
+      iconSize: 8.h,
       splashRadius: 25,
     );
   }
