@@ -11,6 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("assets/icons/medicos.png"), context);
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         title: 'Flutter Demo',
