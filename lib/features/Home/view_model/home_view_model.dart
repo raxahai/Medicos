@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:test_me/core/errors/failures.dart';
+import 'package:test_me/core/network/connection_checker.dart';
+import 'package:test_me/core/network/network_info.dart';
 import 'package:test_me/features/Home/model/associated_drug_model.dart';
 import 'package:test_me/features/Home/model/medical_record_model.dart';
 import 'package:test_me/features/Home/model/problems_model.dart';
@@ -10,10 +12,14 @@ import 'package:http/http.dart' as http;
 
 class HomeViewModel extends GetxController {
   HomeRepository homeRepository = HomeRepositoryImpl(
-    remoteDataSource: HomeRemoteDataSourceImplementation(
-      client: http.Client(),
-    ),
-  );
+      remoteDataSource: HomeRemoteDataSourceImplementation(
+        client: http.Client(),
+      ),
+      networkInfo: NetworkInfoImplementation(
+        ConnectionChecker(
+          CustomInternetAddress(),
+        ),
+      ));
 
   Rx<bool> isLoading = false.obs;
   AssociatedDrug? associatedDrug;
