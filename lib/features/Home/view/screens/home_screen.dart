@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_me/core/widgets/app_bar_widget.dart';
 import 'package:test_me/features/Home/view_model/home_view_model.dart';
+import 'package:sizer/sizer.dart';
+import 'package:test_me/features/Login/view/screens/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -12,7 +14,23 @@ class HomeScreen extends StatelessWidget {
     return Obx(
       () => Scaffold(
         backgroundColor: Colors.white,
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: GestureDetector(
+                onTap: () {
+                  Get.until((route) => route.isFirst);
+                },
+                child: Image.asset(
+                  "assets/icons/lock.png",
+                  width: 7.w,
+                  height: 7.h,
+                ),
+              ),
+            )
+          ],
+        ),
         body: homeViewModel.isLoading.value
             ? Center(child: CircularProgressIndicator())
             : Container(
