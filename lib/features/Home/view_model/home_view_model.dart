@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
+import 'package:test_me/core/errors/exceptions.dart';
 import 'package:test_me/core/errors/failures.dart';
 import 'package:test_me/core/network/connection_checker.dart';
 import 'package:test_me/core/network/network_info.dart';
@@ -35,8 +36,10 @@ class HomeViewModel extends GetxController {
     Either<Failure, MedicalRecordModel> call =
         await homeRepository.getMedicalRecord();
 
-    MedicalRecordModel medicalRecordModel =
-        call.fold((l) => throw UnimplementedError, (r) => r);
+    MedicalRecordModel medicalRecordModel = call.fold((l) {
+      // implementation will be done
+      throw UnimplementedError();
+    }, (r) => r);
     List<Problems>? problems = medicalRecordModel.problems;
 
     // Since list only had one object in each nested json so used
