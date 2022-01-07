@@ -13,10 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     precacheImage(AssetImage("assets/icons/medicos.png"), context);
     return Sizer(
-      builder: (context, orientation, deviceType) => GetMaterialApp(
-        title: 'Flutter Demo',
-        theme: AppTheme.getTheme(),
-        home: LoginScreen(),
+      builder: (context, orientation, deviceType) => GestureDetector(
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: GetMaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme.getTheme(),
+          home: LoginScreen(),
+        ),
       ),
     );
   }
