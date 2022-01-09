@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:test_me/core/widgets/app_bar_widget.dart';
 import 'package:test_me/features/Home/view_model/home_view_model.dart';
 import 'package:sizer/sizer.dart';
-import 'package:test_me/features/Login/view/screens/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -114,7 +113,6 @@ class HomeScreen extends StatelessWidget {
 
   Widget userDetailWidget() {
     return Container(
-      height: 90.0,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -152,22 +150,24 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 10,
             ),
-            Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Welcome',
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "Syed Raza Haider",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ],
+            Expanded(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Welcome',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Syed Raza Haider",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
