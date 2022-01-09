@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
-import 'package:test_me/core/errors/exceptions.dart';
 import 'package:test_me/core/errors/failures.dart';
 import 'package:test_me/core/network/connection_checker.dart';
 import 'package:test_me/core/network/network_info.dart';
@@ -47,5 +46,22 @@ class HomeViewModel extends GetxController {
     associatedDrug = problems!.first.diabetes!.first.medications!.first
         .medicationsClasses!.first.className!.first.associatedDrug!.first;
     isLoading(false);
+  }
+
+  String greetUser() {
+    String text = "";
+    DateTime now = DateTime.now();
+    int hourOfTheDay = now.hour;
+    // using 24-hour conditions
+    if (hourOfTheDay >= 6 && hourOfTheDay < 12) {
+      text = "Good Morning";
+    } else if (hourOfTheDay >= 12 && hourOfTheDay <= 16) {
+      text = "Good Afternoon";
+    } else if (hourOfTheDay > 16 && hourOfTheDay < 18) {
+      text = "Good Evening";
+    } else {
+      text = "Good Night";
+    }
+    return text;
   }
 }

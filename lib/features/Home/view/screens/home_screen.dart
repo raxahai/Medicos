@@ -94,19 +94,21 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget customKeyValue({required String key, required String value}) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      child: Row(
-        children: [
-          Text(
-            key,
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            value.isEmpty ? "N/A" : value,
-            style: TextStyle(fontSize: 20),
-          ),
-        ],
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        child: Row(
+          children: [
+            Text(
+              key,
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              value.isEmpty ? "N/A" : value,
+              style: TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -156,7 +158,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Welcome',
+                    homeViewModel.greetUser(),
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(
